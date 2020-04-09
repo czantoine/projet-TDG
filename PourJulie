@@ -1,0 +1,80 @@
+
+import java.io.*; 
+import java.util.*; 
+
+class Graph 
+{ 
+    private int Sommet;  
+	private int Arcs;	
+    private int[][] graphe; 
+	private int [] suicide;
+	private final List<List<Integer>> adj; 
+ 
+    Graph(int v) { 
+        Sommet = v; 
+        graphe = new int [v][v];
+		adj = new ArrayList<>(v); 
+          
+        for (int i = 0; i < v; i++) 
+            adj.add(new LinkedList<>()); 
+    } 
+  
+   
+    void addEdge(int depart,int arrivee, int poids) {   //c'est ici que tu dois enregistrer le graphs
+        
+		graphe[depart][arrivee] = poids;
+		adj[depart].add(arrivee);
+    } 
+	void Statement(int i, int etat)  //1 entree 0 rien -1 sortie PARTIE 2
+	{
+		suicide[i] = etat;
+	}
+
+    
+    Boolean isCyclicUtil(int i, boolean[] visited, 
+                                      boolean[] recStack) 
+    { 
+       
+        if (recStack[i]) 
+            return true; 
+  
+        if (visited[i]) 
+            return false; 
+              
+        visited[i] = true; 
+  
+        recStack[i] = true; 
+        List<Integer> children = adj.get(i); 
+          
+        for (Integer c: children) 
+            if (isCyclicUtil(c, visited, recStack)) 
+                return true; 
+                  
+        recStack[i] = false; 
+  
+        return false; 
+    } 
+  
+   
+    Boolean isCyclic() 
+    { 
+        
+        boolean visited[] = new Boolean[Sommet];
+		boolean[] recStack = new boolean[Sommet]; 		
+        for (int i = 0; i < Sommet; i++) 
+            visited[i] = false; 
+  
+       
+        for (int u = 0; u < Sommet; u++) 
+            if (!visited[u]) 
+                if (isCyclicUtil(u, visited, -1)) 
+                    return true; 
+  
+        return false; 
+    } 
+  
+  
+    
+   
+}  
+
