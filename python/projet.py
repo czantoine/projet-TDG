@@ -31,6 +31,19 @@ def creation(T):
         S[i]=(len(L)+1)*[L[i-1]]
     return S
     
+dej adjacence(T):
+    S = creation(T)
+    for k in range(len(T)):
+        for i in range (1,len(S[0])):
+            if T[k][O] == S[i][0] and T[k][1] == S[0][1]:
+            S[i][l] = 'V'
+    for i in range (1,len(S)):
+        for l in range (1,len(S[0])):
+            if S[i][l] != 'V':
+                S[i][l] = 'F'
+    return S
+    
+    
  
  #### Main ####
     
