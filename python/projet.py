@@ -1,5 +1,8 @@
+import os
+os .chdir("/Users/Antoine/Documents/Efrei/L3/S6/Théorie des graphes/Projet/projet-TDG/python")
+
 def lecturefichier(texte):
-    fichier = open(text,"r")
+    fichier = open(text,"r") # ouverture en lecture (Read)
     L = []
     L2 = []
     for ligne in fichier:
@@ -48,7 +51,7 @@ def adjacence(T):
  #### Main ####
     
 def projet():
-    Listearc, Listesomarc = lecturefichier(input(graphetest.txt))
+    Listearc, Listesomarc = lecturefichier(input("/Users/Antoine/Documents/Efrei/L3/S6/Théorie des graphes/Projet/projet-TDG/python/graphetest.txt"))
     print("")
     print("La matrice d'ajacence de ce graphe est :")
     print("")
