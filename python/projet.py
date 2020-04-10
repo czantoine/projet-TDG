@@ -8,16 +8,16 @@ def lecturefichier(texte):
         L[i] = L[i].replace('\n','')
         L[i] = L[i].split(" ")
         for j in range(0,len(L[i])):
-        L[i][j] = int(L[i][j])
+            L[i][j] = int(L[i][j])
     for i in range(0,len(L)):
-        if i i == 0 or i == 1:
+        if i == 0 or i == 1:
             L2.append(int(L[0][0]))
             del L[0]
     fichier.close() # on ferme le gestionnaire de fichier
     return L,L2
 
 
-def creation(T)
+def creation(T):
     L=[]
     for i in range (len(T)):
         L.append(T[i][0])
@@ -30,4 +30,19 @@ def creation(T)
     for i in range (1,(len(L)+1)):
         S[i]=(len(L)+1)*[L[i-1]]
     return S
-        
+    
+ 
+ #### Main ####
+    
+def projet():
+    Listearc, Listesomarc = lecturefichier(input(graphetest.txt))
+    print("")
+    print("La matrice d'ajacence de ce graphe est :")
+    print("")
+    matriceadj = np.asarray(adjacence(Listearc))
+    print(matriceadj)
+    
+    return "Send nudes"
+    
+
+
