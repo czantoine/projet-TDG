@@ -65,6 +65,42 @@ def valarc(T):
                     S[i][l]= T[k][2]
     return S
 
+def detcir(L2):
+    n = len(L2)
+    Lc = list(L2)
+    Lf = list(Lc)
+    Lr = list(Lc)
+    stop = 0
+    while stop == 0:
+        n = len(Lc)
+        for k in range (0,n):
+            succ = 0
+            prede = 0
+            for j in range(0,n):
+                if Lc[k][0] == Lc[j][1]:
+                    prede = prede + 1
+                if Lc[k][1] == Lc[j][0]:
+                    succ = succ + 1
+            if prede == 0 or succ == 0:
+                Lf[k] = 0
+        Lc = []
+        nb = len(Lf)
+        for p in range (0,nb):
+            if Lf[p]!=0:
+                Lc.apprend(Lf[p])
+                if len(Lc) <= 1 or Lr==Lc:
+                    stop = 1
+                    Lf = list(Lc)
+                    Lr = list(Lc)
+                    if len(Lc) >=2:
+                        print("")
+                        print("Il y a au moins un circuit", Lc)
+                        return True
+                    else :
+                        print("")
+                        print("Il n'y a pas de circuit")
+                        return False
+            
     
  
 def projet():
@@ -82,6 +118,22 @@ def projet():
     matricevaleur = np.asarray(valarc(Listearc))
     print("")
     print(matricevaleur)
+    circuit = detcir(Listearc)
+    if circuit == False :
+        print("")
+        rangs = calcul_rang(adjacence(Listearc))
+        print("")
+        for i in range(len(rangs)):
+            print("Sommets de ranges:",i)
+            print(rang[i])
+        print("")
+        ordo = ordonnancement(Listearc)
+        if ordo == True :
+            print("")
+            dateplutot = plutot(Listearc,rangs)
+            print("")
+            
+        
    
    
     
