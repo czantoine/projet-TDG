@@ -1,7 +1,6 @@
 
 import numpy as np
 
-
 def lecturefichier(texte):
     fichier = open(texte,"r") # ouverture en lecture (Read)
     L = []
@@ -68,21 +67,27 @@ def valarc(T):
 
     
  
-    
 def projet():
 
 
-    Listearc, Listesomarc = lecturefichier(input("/Users/Antoine/.spyder-py3/graphetest.txt"))
+    Listearc, Listesomarc = lecturefichier(input("Nom du fichier:"))
     print("")
     print("La matrice d'ajacence de ce graphe est :")
     print("")
-    
-    print(lecturefichier)
+    matriceadj = np.asarray(adjacence(Listearc))
+    print(matriceadj)
+    print("")
+    print("La matrice de la valeur des arcs est :")
+    print("")
+    matricevaleur = np.asarray(valarc(Listearc))
+    print("")
+    print(matricevaleur)
+   
    
     
-    return "Send nudes"
+    return "ah sht here we go again"
     
 
+projet()
 
-print (projet())
 
