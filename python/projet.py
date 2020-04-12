@@ -125,13 +125,14 @@ def projet():
         print("")
         for i in range(len(rangs)):
             print("Sommets de ranges:",i)
-            print(rang[i])
+            print(rangs[i])
         print("")
         ordo = ordonnancement(Listearc)
         if ordo == True :
             print("")
             dateplutot = plutot(Listearc,rangs)
             print("")
+        
             
         
    
