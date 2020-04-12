@@ -1,8 +1,9 @@
-import os
-os .chdir("/Users/Antoine/Documents/Efrei/L3/S6/Théorie des graphes/Projet/projet-TDG/python")
+
+import numpy as np
+
 
 def lecturefichier(texte):
-    fichier = open(text,"r") # ouverture en lecture (Read)
+    fichier = open(texte,"r") # ouverture en lecture (Read)
     L = []
     L2 = []
     for ligne in fichier:
@@ -34,31 +35,54 @@ def creation(T):
         S[i]=(len(L)+1)*[L[i-1]]
     return S
     
+    
 def adjacence(T):
-    S = creation(T)
-    for k in range(len(T)):
-        for i in range (1,len(S[0])):
-            if T[k][O] == S[i][0] and T[k][1] == S[0][1]:
-                S[i][l] = 'V'
+    S=creation(T)
+    for k in range (len(T)):
+        for i in range (1,len(S)):
+            for l in range (1,len(S[0])):
+            
+                if T[k][0]==S[i][0] and T[k][1]==S[0][l]:
+                    S[i][l]= 'V'
+                 
     for i in range (1,len(S)):
         for l in range (1,len(S[0])):
-            if S[i][l] != 'V':
-                S[i][l] = 'F'
+            if S[i][l]!= 'V':
+                S[i][l]='F'
+                        
     return S
-    
+
+def valarc(T):
+    S=adjacence(T)
+    for i in range (1,len(S)):
+        for l in range (1,len(S[0])):
+            if S[i][l]== 'F':
+                S[i][l]='*'
+    for k in range (len(T)):
+        for i in range (1,len(S)):
+            for l in range (1,len(S[0])):
+            
+                if T[k][0]==S[i][0] and T[k][1]==S[0][l]:
+                    S[i][l]= T[k][2]
+    return S
+
     
  
- #### Main ####
     
 def projet():
-    Listearc, Listesomarc = lecturefichier(input("/Users/Antoine/Documents/Efrei/L3/S6/Théorie des graphes/Projet/projet-TDG/python/graphetest.txt"))
+
+
+    Listearc, Listesomarc = lecturefichier(input("/Users/Antoine/.spyder-py3/graphetest.txt"))
     print("")
     print("La matrice d'ajacence de ce graphe est :")
     print("")
-    matriceadj = np.asarray(adjacence(Listearc))
-    print(matriceadj)
+    
+    print(lecturefichier)
+   
     
     return "Send nudes"
     
 
+
+print (projet())
 
