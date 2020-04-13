@@ -106,21 +106,62 @@ def calcul_rang(Ta,Lf=[]):
     v = 1
     Li = Ta[0]
     Tar =  [Ta[0]]
+    
     if len(Ta) == 1:
         return Lf
     else :
+        
         for j in range (1,len(Ta[0])):
             for i in range (1,len(Ta)):
+                print("i -",i,"j-",j)
+                print("tqille ta0", len(Ta[0]))
+                print("taille ta",len(Ta))
                 if Ta[i][j] == 'F':
                     Val = False
                 else :
                     Val = True
                     break
-                if Val == False :
-                    Lpe.append(Ta[v][0])
+            if Val == False :
+                Lpe.append(Ta[v][0])
+            else :
+                Tar = Tar+[Ta[j]]
+            v+=1
+            
+            
+        for i in range(1,len(Tar)):
+            compteur=0
+            for j in range(1,len(Tar[0])):
+                for k in Lpe:
+                    if k==Ta[0][j]:
+                        Vald =  True
+                        break
+                    else:
+                        Vald = False
+                if Vald == True :
+                    Ld = Tar[i]
+                    
+                    del Ld[j+compteur]
+                    compteur -= 1
+                    Tar[i]=Ld
+                    
+                    
+        Lv = []
+        for i in range (len(Li)):
+            for k in Lpe:
+                if Li[i] != k:
+                    ValL = True
+                    break
                 else :
-                    Tar = Tar+[Ta[j]]
-                v+=1
+                    ValL = False
+                    break
+            if ValL == True:
+                Lv.append(Li[i])
+        Tar[0] = Lv
+        Lf = Lf+[Lpe]
+        return calcul_rang(Tar,Lf)
+                            
+            
+            
 
 def pointdentree(L2):
     LC = list(L2)
@@ -312,7 +353,7 @@ def projet():
             print("Calendrier au plus tot :")
             print("")
             print(dateplutot)
-            dateplutot = plutard(Listearc,rangs,dateplutot)
+            dateplutard = plutard(Listearc,rangs,dateplutot)
             print("")
             print("Calendrier au plus tard")
             print("")
