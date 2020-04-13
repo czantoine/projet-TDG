@@ -87,7 +87,7 @@ def detcir(L2):
         nb = len(Lf)
         for p in range (0,nb):
             if Lf[p]!=0:
-                Lc.apprend(Lf[p])
+                Lc.append(Lf[p])
                 if len(Lc) <= 1 or Lr==Lc:
                     stop = 1
                     Lf = list(Lc)
