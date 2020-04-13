@@ -178,7 +178,7 @@ def arcnegatif(L2):
         print("Il y a des arcs à valeurs négatives")
         return False
         
-def valeuridentiques(L2):
+def valeursIdentiques(L2):
     n = len (L2)
     for k in range (n):
         for j in range (n):
@@ -190,8 +190,69 @@ def valeuridentiques(L2):
     return True
                 
     
+def arcentreevaleurnulle(L2):
+    pe = pointdentree(L2)
+    n = len(L2)
+    for i in range(n):
+        if L2[i][0] == pe :
+            if L2[i][2] != 0:
+                print("Les valeurs des arcs ne sont pas égales à 0")
+                return False
+    print("Les valeurs des arcs sont égales à 0")
+    return True
+
+def ordonnancement(Listearc):
+    Listordo = []
+    pe = pointdentree(Listearc)
+    Listordo.append(pe)
+    ps = pointdesortie(Listearc)
+    Listordo.append(ps)
+    arcneg = arcnegatif(Listearc)
+    Listordo.append(arcneg)
+    valid = valeursIdentiques(Listearc)
+    Listordo.append(valid)
+    arcentreenul = arcentreevaleurnulle(Listearc)
+    Listordo.append(arcentreenul)
+
+    for i in range (0,len(Listordo)):
+        if Listordo[0] == 0 :
+            Listordo[0] = 1
+        if Listordo[i] == False :
+            print("Ce n'est pas un graphe d'ordonnecement")
+            return False
+    print(Listordo)
+    print("Ce graphe est un graphe d'ordonnecement ")
+    return True
+
+
+def plutot(L2,Lrang):
+    Ld = []
     
- 
+    for i in range (0,len(Lrang)):
+        for p in range(0,len(Lrang[i])):
+            Ld.append([Lrang[i][p]])
+        for i in range(len(Ld)):
+            Ld[i].append(-1)
+        Ld[0][1] = 0
+    for i in range(1,len(Lrang)):
+        for p in range(0,len(Lrang[i])):
+            L=[]
+            for j in range(0,len(Lrang[i])):
+                if Lrang[i][p] == L2 [j][1]:
+                    for u in range (len(L2)):
+                        if L2[j][0] == Ld[u][0]:
+                            res = L2[j][2]+Ld[u][1]
+                            L.append(res)
+            for y in range(len(Ld)):
+                if Lrang[i][p] == Ld[y][0]:
+                    Ld[y][1] = max(L)
+                    
+    return Ld
+                            
+                            
+            
+    
+
 def projet():
 
 
