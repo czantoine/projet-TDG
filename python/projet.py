@@ -248,7 +248,27 @@ def plutot(L2,Lrang):
                     Ld[y][1] = max(L)
                     
     return Ld
-                            
+                   
+def plutard(L2,Lrang,Ld):
+    LP = list(Ld)
+    LP.reverse()
+    Lrang.reverse()
+    for i in range (1,len(Lrang)):
+        for p in range (0,len(Lrang[i])):
+            L = []
+            for j in range (0,len(L2)):
+                if Lrang[i][p]== L2[j][0]:
+                    for u in range (len(LP)):
+                        if L2[j][1] == LP[u][0]:
+                            res = LP[u][1]- L2 [j][2]
+                            L.append(res)
+            for y in range (len,LP):
+                if Lrang[i][p] == LP[y][0]:
+                    LP[y][1] = min(L)
+                    
+    LP.reverse()
+    return LP
+         
                             
             
     
