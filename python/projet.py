@@ -269,7 +269,14 @@ def plutard(L2,Lrang,Ld):
     LP.reverse()
     return LP
          
-                            
+def margetotale(Lplutard, Lplutot):
+    Lc = list(Lplutard)
+    margetot = 0
+    for i in range (len(Lplutard)):
+        margetot = Lplutard[i][1] - Lplutot[i][1]
+        Lc[i][1] = margetot
+    return Lc
+                               
             
     
 
