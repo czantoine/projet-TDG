@@ -165,7 +165,31 @@ def pointdesortie(L2):
         return Listefinale[0]
     
     
+def arcnegatif(L2):
+    a = 0
+    n = len (L2)
+    for k in range (n):
+        if L2[k[2]]<0:
+            print("L'arc",L2[k],"est de valeur négative")
+            a = 1
+    if a == 0 :
+        return ("Il n'y a pas d'arc négatif")
+    else :
+        print("Il y a des arcs à valeurs négatives")
+        return False
         
+def valeuridentiques(L2):
+    n = len (L2)
+    for k in range (n):
+        for j in range (n):
+            if L2[k][0] == L2[j][0]:
+                if L2[k][0] != L2[j][0]:
+                    print("Tous les arcs incidents vers l'extérieurs ne sont pas à valeurs identiques ")
+                    return False
+    print("valeurs identiques pour tous les arcs incidents vers l’extérieur à un sommet,")
+    return True
+                
+    
     
  
 def projet():
