@@ -41,12 +41,6 @@ class Graph
 		
     } 
 
-
-	List<List<Integer>> getlist()
-	{
-		return graphcircuit;
-	
-	}
 	
 	
 	void valeur_tab()
@@ -157,12 +151,18 @@ class Graph
     	System.out.println("Calcul date au plus tot par sommet : ");
     	System.out.println("");
     	System.out.print("Sommet               ");	
-    	for(int i =0 ; i< ord.size() ;i++)
+    	for(int k =0 ; k< ord.size() ;k++)
     	{
-    		System.out.print(i + "  ");
+
+			if(k<10)
+			{
+				System.out.print(" " +k + " ");
+			}
+			else 
+				System.out.print(" "+k );
     	}
     	System.out.println("  ");
-    	System.out.print("Date au plus tot     ");
+    	System.out.print("Date au plus tot      ");
     	for(int i =0 ; i< ord.size() ;i++)
     	{
     		
@@ -179,12 +179,18 @@ class Graph
     	System.out.println("\n\n Calcul date au plus tard par sommet : ");
     	System.out.println("");
     	System.out.print("Sommet               ");	
-    	for(int i =0 ; i< ord.size() ;i++)
+    	for(int k =0 ; k< ord.size() ;k++)
     	{
-    		System.out.print(i + "  ");
+
+			if(k<10)
+			{
+				System.out.print(" " +k + " ");
+			}
+			else 
+				System.out.print(" "+k );
     	}
     	System.out.println("  ");
-    	System.out.print("Date au plus tard    ");
+    	System.out.print("Date au plus tard     ");
     	for(int i =0 ; i< ord.size() ;i++)
     	{
     		
@@ -493,9 +499,6 @@ class Graph
     }
  
     
-    
-
-    
     Integer sum_succ(Integer i)
     {
     	Integer Sum= 0 ;
@@ -609,7 +612,7 @@ class Graph
         graph.addEdge(4, 7, 8);
         graph.addEdge(4, 5, 8);
         graph.addEdge(4, 6, 8);
-        graph.addEdge(3, 6, 2);
+        graph.addEdge(3, 6, 1);
         graph.addEdge(3, 5, 1);
         graph.addEdge(3, 7, 1);
         graph.addEdge(7, 10, 1);
@@ -645,17 +648,7 @@ class Graph
 		        graph.affiche_plustard(graph.plutardcall(tmp.get()));
 	        }
 	       
-	       
-	        
-	        
-	       
-	       
-	        
-	     
-	          
-	       
-
-
+	      
    
        
     } 
