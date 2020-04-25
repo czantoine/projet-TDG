@@ -1,0 +1,74 @@
+Quel fichier ? :
+09
+src\graphes\09.txt
+09
+
+Sommets =10
+Arcs =18
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 2 = 2
+1 -> 4 = 2
+1 -> 5 = 2
+2 -> 3 = 3
+2 -> 4 = 3
+2 -> 8 = 3
+3 -> 7 = 5
+3 -> 9 = 5
+4 -> 5 = 6
+4 -> 6 = 6
+4 -> 8 = 6
+5 -> 6 = 2
+5 -> 7 = 2
+6 -> 9 = 1
+7 -> 8 = 6
+8 -> 9 = 1
+
+Matrice d'adjacence
+   0  1  2  3  4  5  6  7  8  9 
+0  0  1  1  0  0  0  0  0  0  0 
+1  0  0  1  0  1  1  0  0  0  0 
+2  0  0  0  1  1  0  0  0  1  0 
+3  0  0  0  0  0  0  0  1  0  1 
+4  0  0  0  0  0  1  1  0  1  0 
+5  0  0  0  0  0  0  1  1  0  0 
+6  0  0  0  0  0  0  0  0  0  1 
+7  0  0  0  0  0  0  0  0  1  0 
+8  0  0  0  0  0  0  0  0  0  1 
+9  0  0  0  0  0  0  0  0  0  0 
+
+Matrice des valeurs
+   0  1  2  3  4  5  6  7  8  9 
+0  *  0  0  *  *  *  *  *  *  * 
+1  *  *  2  *  2  2  *  *  *  * 
+2  *  *  *  3  3  *  *  *  3  * 
+3  *  *  *  *  *  *  *  5  *  5 
+4  *  *  *  *  *  6  6  *  6  * 
+5  *  *  *  *  *  *  2  2  *  * 
+6  *  *  *  *  *  *  *  *  *  1 
+7  *  *  *  *  *  *  *  *  6  * 
+8  *  *  *  *  *  *  *  *  *  1 
+9  *  *  *  *  *  *  *  *  *  * 
+
+Le Graphes ne contient pas de circuits
+
+Suite..
+
+Calcul rang par sommet : 
+
+Sommet  0  1  2  3  4  5  6  7  8  9    
+Rang    0  1  2  3  3  4  5  5  6  7  
+Calcul date au plus tot par sommet : 
+
+Sommet                0  1  2  3  4  5  6  7  8  9   
+Date au plus tot      0  0  2  5  5  11 13 13 19 20 
+
+ Calcul date au plus tard par sommet : 
+
+Sommet                0  1  2  3  4  5  6  7  8  9   
+Date au plus tard     0  0  2  8  5  11 19 13 19 20 
+
+Marge totale par sommet : 
+
+Sommet              0  1  2  3  4  5  6  7  8  9   
+Marge totale        0  0  0  3  0  0  6  0  0  0  
