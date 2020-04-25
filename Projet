@@ -9,7 +9,8 @@ class Graph
     private Integer[][] graphe; 
 	private  List<List<Integer>> graphcircuit; 
  
-    Graph(int v, int arc) { //constructeur du graphe vide
+    Graph(int v, int arc) //constructeur du graphe vide
+    { 
         Sommet = v;
         this.arcs= arc;
         graphe = new Integer [v][v];
@@ -35,16 +36,16 @@ class Graph
 		graphe[depart][arrivee] = poids;
 		
 		graphcircuit.get(depart).add(arrivee);
-	
 		
     } 
 
 	
 	
-	void valeur_tab()		//affichage Matrice des caleurs
+	void valeur_tab()		// affichage Matrice des valeurs
 	{
 		System.out.println("Matrice des valeurs");
 		System.out.print("  ");
+
 		for(int k = 0;k<Sommet; k++)
 		{
 			if(k<10)
@@ -55,6 +56,7 @@ class Graph
 				System.out.print(" "+k );
 		}
 		System.out.println("");
+
 		for(int i = 0; i< Sommet;i++)
 		{   System.out.print(i + " ");
 			for(int j = 0;j<Sommet; j++)
@@ -74,19 +76,18 @@ class Graph
 						System.out.print("*  ");
 					}
 					else 
-						System.out.print(graphe[i][j]+"  ");
-				
-					
-				
+						System.out.print(graphe[i][j]+"  ");													
 			}
 			System.out.println("");
 		}
 	}
+
 	void adjacence_tab() // affichage tableau d'adjacence 
 	{   
 		
 		System.out.println("Matrice d'adjacence");
 		System.out.print("  ");
+
 		for(int k = 0;k<Sommet; k++)
 		{
 			if(k<10)
@@ -96,7 +97,9 @@ class Graph
 			else 
 				System.out.print(" "+k );
 		}
+
 		System.out.println("");
+
 		for(int i = 0; i< Sommet;i++)
 		{   System.out.print(i + " ");
 			for(int j = 0;j<Sommet; j++)
@@ -122,6 +125,8 @@ class Graph
 			System.out.println("");
 		}
 	}
+
+
     void affiche_rang(ArrayList<Integer> rang) //affiche les rangs par sommet
     
     {
@@ -145,6 +150,8 @@ class Graph
     			System.out.print( rang.get(i)+ "  ");
     	}
     }
+
+
     void affiche_plustot(ArrayList<Integer> ord) // affichage de la date au plus tot par sommet
     {
     	System.out.println("Calcul date au plus tot par sommet : ");
@@ -160,6 +167,7 @@ class Graph
 			else 
 				System.out.print(" "+k );
     	}
+
     	System.out.println("  ");
     	System.out.print("Date au plus tot      ");
     	for(int i =0 ; i< ord.size() ;i++)
@@ -173,6 +181,7 @@ class Graph
     			System.out.print( ord.get(i)+ " ");
     	}
     }
+
     void affiche_plustard(ArrayList<Integer> ord) // affichage de la date au plus tard par sommet
     {
     	System.out.println("\n\n Calcul date au plus tard par sommet : ");
@@ -201,11 +210,13 @@ class Graph
     			System.out.print( ord.get(i)+ " ");
     	}
     }
+
     void affiche_marge(ArrayList<Integer> ord) // affiche la marge
     {
     	System.out.println("\n\nMarge totale par sommet : ");
     	System.out.println("");
     	System.out.print("Sommet             ");	
+
     	for(int k =0 ; k< ord.size() ;k++)
     	{
 
@@ -216,8 +227,10 @@ class Graph
 			else 
 				System.out.print(" "+k );
     	}
+
     	System.out.println("  ");
     	System.out.print("Marge totale        ");
+
     	for(int i =0 ; i< ord.size() ;i++)
     	{
     		
@@ -229,6 +242,7 @@ class Graph
     			System.out.print( ord.get(i)+ " ");
     	}
     }
+
 	void affiche_graph() //affichage du graphe
 	{
 		System.out.println("Sommets ="+this.Sommet);
@@ -294,6 +308,7 @@ class Graph
 	    		liste_rang.set(i, 0);
 	    	}
     	}
+
     	while(liste_rang.contains(null)  ) // tous les sommets soivent avoir un rang
     	{
     		
@@ -423,7 +438,7 @@ class Graph
     		ord.add(null);
     	}	
 		ord.set(entree, 0); //entrée rang 0 obligatoirement 
-		var succ = jinvoquelessucc(entree);//on commence le calcul de la date au plus tot a partir des successeurs de l'entrée
+		var succ = jinvoquelessucc(entree);   //on commence le calcul de la date au plus tot a partir des successeurs de l'entrée
 		for(int j = 0 ; j<succ.size();j++)
 		{
 			 plutotbis(succ.get(j),ord);
@@ -431,7 +446,7 @@ class Graph
     	return ord;
   }
         
-    void plutotbis(Integer Sommet, ArrayList<Integer> ord)//boucle recursive pour trouver les dates aux plus tot de chaque sommet 
+    void plutotbis(Integer Sommet, ArrayList<Integer> ord)  //boucle recursive pour trouver les dates aux plus tot de chaque sommet 
     {
 		
     	var preds = jinvoquelesprede(Sommet);
@@ -447,7 +462,7 @@ class Graph
     	}
     	Integer max_ord = -1;
     	
-    	for(Integer pred : preds )// on regarde chaque predecesseurs
+    	for(Integer pred : preds ) // on regarde chaque predecesseurs
     	{
     		var curr = ord.get(pred) + graphe[pred][Sommet];
     		
@@ -465,7 +480,7 @@ class Graph
   	
     }
    
-   ArrayList<Integer> plutardcall(Integer plustotlast)// principe similaire a date au plus tot
+   ArrayList<Integer> plutardcall(Integer plustotlast)  // principe similaire a date au plus tot
    
     { 
     	
@@ -603,7 +618,7 @@ class Graph
     	return true;
     }
     
-     boolean Ordonnancement()//vérifications des conditions d'ordonnancement
+     boolean Ordonnancement() //vérifications des conditions d'ordonnancement
     {
     	 
       	if(Liste_entree().size() != 1)
